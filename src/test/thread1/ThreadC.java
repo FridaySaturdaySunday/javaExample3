@@ -1,14 +1,12 @@
 package test.thread1;
 
-public class ThreadB extends Thread {
+public class ThreadC implements Runnable {
 
-	@Override
+	@Override // ctrl + space 자동완성기능 이용
 	public void run() {
 		
-		// 다른 스래드 클래스와 동시 처리하고 싶은 내용을 코드로 작성함
-		
 		for(int k = 1; k <= 30; k++) {
-			System.out.println(k);
+			System.out.println("C-"+k);
 			
 			try {
 				Thread.sleep(100); // 100ms 쉬고 처리
@@ -16,5 +14,7 @@ public class ThreadB extends Thread {
 				e.printStackTrace();
 			}
 		}
+		
 	}
+	
 }
