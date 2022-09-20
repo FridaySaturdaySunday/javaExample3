@@ -1,5 +1,7 @@
 package test.thread2;
 
+import test.thread1.ThreadC;
+
 public class PriorityTest extends Thread{
 	
 //	<스레드 우선 순위>
@@ -26,6 +28,9 @@ public class PriorityTest extends Thread{
 	
 	
 	public static void main(String[] args) {
+		
+		Thread t4 = new Thread(new ThreadC()); // runnable 사용시 
+		
 		// 우선 순위 테스트용
 		Thread t1 = new PriorityTest("제일 높은 스레드");
 		Thread t2 = new PriorityTest("보통 스레드");
