@@ -11,7 +11,7 @@ public class Buffer {
 	private int data;
 	private boolean empty = true;
 	
-	// 데이터 가져오기
+	// 케익 없을때 - consumer 기다리게했다가 가져가게함
 	public synchronized int get() {
 		while (empty) {
 			try {
@@ -25,7 +25,7 @@ public class Buffer {
 		return data;
 	}
 	
-	// 데이터 입력하기
+	// 케익 있을때 - producer 안만들게했다가 만들게함
 	public synchronized void put(int data) {
 		while (!empty) {
 			try {

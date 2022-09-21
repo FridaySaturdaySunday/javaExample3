@@ -4,7 +4,7 @@ import test.common.Buffer;
 
 public class Producer implements Runnable {
 
-	private Buffer buffer;
+	private Buffer buffer; // Customer와 공유객체
 
 	public Producer(Buffer buffer) {
 		this.buffer = buffer;

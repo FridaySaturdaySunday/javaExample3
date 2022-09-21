@@ -12,9 +12,9 @@ public class SynchReadNumber extends Thread {
 
 	@Override
 	public void run() {
-		for (int n = 1; n <= 5; n++) {
+		for (int n = 1; n <= 10; n++) {
 			try {
-				// 다른 스래드의 동기화 사용이 끝나기를 기다리는 상태이면
+				// 다른 스래드의 동기화 사용이 끝나기를 기다리는 상태이면 (정지상태)
 				if (this.getState() == Thread.State.BLOCKED) {
 					// 다른 스래드가 신호를 보낼 때까지 기다려라.
 					this.wait(); // 대기해!!

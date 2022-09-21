@@ -3,8 +3,8 @@ package test.synch2;
 public class SharedData {
 
 	private int number = 12;
-	private volatile boolean isChanged; // 휘발성
-	// 최적화(비휘발성) : 메모리에 기록된 값을 계속 가져다 사용하는 것
+	private volatile boolean isChanged; // volatile : 휘발성
+	// 최적화(비휘발성) -> 메모리에 기록된 값을 계속 가져다 사용하는 것
 
 	// 생성자
 	public SharedData() {}
@@ -26,13 +26,17 @@ public class SharedData {
 		this.isChanged = isChanged;
 	}
 
-	// 동기화 처리된 메소드
-	public synchronized void calcNumber() {
-		number *= 3;
-		System.out.println("changed....");
+	// 동기화 메소드 or 동기화 블록
+	public /*synchronized*/ void calcNumber() {
+		synchronized (this) {
+			number *= 3;
+			System.out.println("changed...." + number);
+		}
 	}
 	
-	public synchronized void printNumber() {
-		System.out.println("number : " + number);
+	public /*synchronized*/ void printNumber() {
+		synchronized (this) {
+			System.out.println("number : " + number);
+		}
 	}
 }
