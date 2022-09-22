@@ -19,7 +19,7 @@ public class Messenger {
 		this.otherPort = otherPort;
 
 		try {
-			address = InetAddress.getByName("127.0.0.1");
+			address = InetAddress.getByName("127.0.0.1"); // "localhost" 써도 됨
 			socket = new DatagramSocket(myPort);
 			f = new MyFrame(address, otherPort, socket);
 		} catch (UnknownHostException e) {

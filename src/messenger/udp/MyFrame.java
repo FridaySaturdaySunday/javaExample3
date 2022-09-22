@@ -30,7 +30,8 @@ public class MyFrame extends JFrame implements ActionListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		textField = new JTextField(30);
-		textField.addActionListener(this);
+		textField.addActionListener(this); 
+		// this 대신 new ActionListener 쓰고 바로 밑에 @Override된 public void actionPerformed ~ 작성해도됨
 
 		textArea = new JTextArea(10, 30);
 		textArea.setEditable(false);
