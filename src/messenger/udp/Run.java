@@ -8,9 +8,16 @@ public class Run {
 
 //		System.out.println(JOptionPane.showInputDialog("aaaa")); // cancel 누르면 null뜸
 		
-		int myPort = Integer.parseInt(JOptionPane.showInputDialog("당신의 포트번호를 입력하세요"));
-		int otherPort = Integer.parseInt(JOptionPane.showInputDialog("상대방 포트번호를 입력하세요"));
+		int myPort = 0;
+		int otherPort = 0;
 		
+		try {
+			myPort = Integer.parseInt(JOptionPane.showInputDialog("당신의 포트번호를 입력하세요"));
+			otherPort = Integer.parseInt(JOptionPane.showInputDialog("상대방 포트번호를 입력하세요"));
+			
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
 		Messenger a = new Messenger(myPort, otherPort);
 		MyFrame f = a.getMyFrame();
 		f.process();

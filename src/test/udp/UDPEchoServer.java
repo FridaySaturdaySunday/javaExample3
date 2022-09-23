@@ -40,8 +40,8 @@ public class UDPEchoServer {
 				DatagramPacket send = new DatagramPacket(
 						receive.getData(), // 보내는 메시지
 						receive.getData().length, // 보내는 메시지 길이
-						receive.getAddress(), // 클라이언트 주소
-						receive.getPort()); // 클라이언트 포트
+						receive.getAddress(), // 상대방 주소
+						receive.getPort()); // 상대방 포트
 				dSock.send(send);
 			}
 		} catch (Exception e) {

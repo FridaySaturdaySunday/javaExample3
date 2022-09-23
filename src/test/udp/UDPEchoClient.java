@@ -38,8 +38,8 @@ public class UDPEchoClient {
 				DatagramPacket send = new DatagramPacket(
 						str.getBytes(), // 보내는 메시지
 						str.getBytes().length, // 보내는 메시지 길이 
-						inetaddr, // 클라이언트 주소
-						9007); // 클라이언트 포트
+						inetaddr, // 상대방 주소
+						9007); // 상대방 포트
 				dSock.send(send);
 				
 				if (str.equals("exit"))
