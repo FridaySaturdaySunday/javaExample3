@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -18,7 +19,12 @@ public class TcpClient {
 		
 		try {
 			// 서버 연결 시도 - 성공시 소켓생성
-			s = new Socket("localhost", 9007);
+			s = new Socket("localhost", 9007); // localhost: 내가 현재 접속하고있는곳
+			s = new Socket("127.0.0.1", 9007); // TODO 
+			s = new Socket(InetAddress.getLocalHost(), 9007); // getLocalHost: 자기IP
+			s = new Socket(InetAddress.getLocalHost().getHostAddress(), 9007); // getHostAddress: String으로 반환
+			
+//			System.out.println(InetAddress.getLocalHost()); // DESKTOP-VG78N1V/192.168.20.127
 			
 			// 연결소켓으로부터 입출력 얻어옴
 			in = new BufferedReader(new InputStreamReader(s.getInputStream()));

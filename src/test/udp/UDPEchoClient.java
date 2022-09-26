@@ -35,7 +35,7 @@ public class UDPEchoClient {
 				// 데이터그램 송신
 				System.out.print("\tInsert Msg > ");
 				str = br.readLine();
-				DatagramPacket send = new DatagramPacket(
+				DatagramPacket send = new DatagramPacket( // DatagramPacket : 무조건 byte 형태가 담김
 						str.getBytes(), // 보내는 메시지
 						str.getBytes().length, // 보내는 메시지 길이 
 						inetaddr, // 상대방 주소

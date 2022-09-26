@@ -8,10 +8,10 @@ public class InetAddressEx {
 
 	public void testInetAddress(String domain) {
 		// getByName(String host) : 도메인명(host)을 통해 IP주소 얻음
-		// getHostName() : 호스트의 이름을 반환
-		// getHostAddress() : 호스트의 IP주소를 반환
+		// getLocalHost() : 지역호스트의 IP주소 반환 // DESKTOP-VG78N1V/192.168.20.127
+		// getHostName() : 호스트의 이름을 반환 // DESKTOP-VG78N1V
+		// getHostAddress() : 호스트의 IP주소를 반환 // 192.168.20.127
 		// getAddress() : IP주소를 byte'배열'로 반환
-		// getLocalHost() : 지역호스트의 IP주소 반환
 		
 		InetAddress ip = null;
 
@@ -40,7 +40,6 @@ public class InetAddressEx {
 			System.out.println("-----------------------------------");
 			
 			ip = InetAddress.getLocalHost(); 
-			
 			System.out.println("LocalHostName : " + ip.getHostName()); //DESKTOP-VG78N1V
 			System.out.println("LocalHostAddress() : " + ip.getHostAddress()); //192.168.20.127
 			System.out.println("Local HostName/HostAddress : \n\t" + ip.toString());

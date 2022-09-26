@@ -30,8 +30,10 @@ public class ServerBackground {
 	// 서버 생성 시 서버 정보 설정
 	public void setting() {
 		try {
+			// 스레드가 없다면 굳이 동기화할 필요 없음
 			// 사용자들이 동시 접속 시 맵에 정보가 순차적으로 저장될 수 있게 동기화
 			Collections.synchronizedMap(clientMap);
+//			Collections.synchronizedList(clientList);
 
 			// 서버소켓 생성
 			serverSocket = new ServerSocket(7777);
@@ -108,8 +110,8 @@ public class ServerBackground {
 				// 입력한 문자열을 화면에 출력하는 기능
 				while (in != null) {
 					msg = in.readUTF(); // UTF 문자셋으로 읽어 오는 메소드
-					sendMessage(msg);
-					gui.appendMsg(msg);
+					sendMessage(msg); // 모든 clientMay들에게 msg 보냄
+					gui.appendMsg(msg); // 나의 창에도 msg 나타내기
 				}
 			} catch (Exception e) {
 				// 사용자가 접속 종료, 즉 GUI 종료 시 실행할 내용 작성

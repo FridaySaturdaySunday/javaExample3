@@ -38,6 +38,7 @@ public class ClientBackground {
 
 			// 서버에 나의 nickName을 전송
 			out.writeUTF(nickName);
+			// out.flush(); -> 안해도됨
 
 			// in은 생성되고 나면 연결이 끊어지기 전까지 null이 될 수 없음. 무한반복.
 			while (in != null) {

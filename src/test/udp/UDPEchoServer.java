@@ -37,7 +37,7 @@ public class UDPEchoServer {
 				System.out.println("메시지 보낸 곳의 포트: " + receive.getPort());
 
 				// 데이터 송신
-				DatagramPacket send = new DatagramPacket(
+				DatagramPacket send = new DatagramPacket( // DatagramPacket : 무조건 byte 형태가 담김
 						receive.getData(), // 보내는 메시지
 						receive.getData().length, // 보내는 메시지 길이
 						receive.getAddress(), // 상대방 주소
