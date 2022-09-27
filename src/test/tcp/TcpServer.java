@@ -29,13 +29,12 @@ public class TcpServer {
 			in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			out = new PrintWriter(new OutputStreamWriter(s.getOutputStream()));
 			
+			// 2. 입력스트림을 수신
 			String msg = null;
-			while((msg = in.readLine()) != null) {
-				
-				// 입력스트림을 수신
+			while((msg = in.readLine()) != null) { // 받은걸 변수 msg에 넣어야됨
 				System.out.println("받은메세지 : " + msg);
 				
-				// 출력스트림을 송신
+				// 3. 출력스트림을 송신
 				out.println("sendMsg");
 				out.flush(); // 버퍼비우기
 			}

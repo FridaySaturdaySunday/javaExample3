@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class InetAddressEx {
 
 	public void testInetAddress(String domain) {
-		// getByName(String host) : 도메인명(host)을 통해 IP주소 얻음
+		// getByName(String host) : 도메인명(host) 통해 IP주소 얻음 // www.oracle.com/104.74.162.89
 		// getLocalHost() : 지역호스트의 IP주소 반환 // DESKTOP-VG78N1V/192.168.20.127
 		// getHostName() : 호스트의 이름을 반환 // DESKTOP-VG78N1V
 		// getHostAddress() : 호스트의 IP주소를 반환 // 192.168.20.127
@@ -24,7 +24,7 @@ public class InetAddressEx {
 
 			System.out.println("-----------------------------------");
 			
-			byte[] ipAddr = ip.getAddress(); 
+			byte[] ipAddr = ip.getAddress(); // IP주소를 byte '배열'로 반환
 			System.out.println("getAddress() : " + Arrays.toString(ipAddr)); //[104, 74, -94, 89] -> 오버플로우
 
 			System.out.print("HostAddress : ");
@@ -48,4 +48,16 @@ public class InetAddressEx {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -32,7 +32,8 @@ public class UDPEchoClient {
 			dSock = new DatagramSocket(9090); // 포트번호 9090으로 UDP 소켓 생성 (내꺼)
 			String str = null;
 			do {
-				// 데이터그램 송신
+				
+				// 1. 데이터그램 송신
 				System.out.print("\tInsert Msg > ");
 				str = br.readLine();
 				DatagramPacket send = new DatagramPacket( // DatagramPacket : 무조건 byte 형태가 담김
@@ -47,11 +48,12 @@ public class UDPEchoClient {
 				
 				System.out.println("str.getBytes().length : " + str.getBytes().length); // 클라이언트가 입력한 길이
 				
-				// 데이터그램 수신
+				
+				// 4. 데이터그램 수신
 				byte[] buffer = new byte[1024];
 				DatagramPacket receive = new DatagramPacket(buffer, buffer.length);
 				dSock.receive(receive);
-				System.out.println("receive.getLength() : " + receive.getLength()); // 1024
+				System.out.println("receive.getLength() : " + receive.getLength()); // 1024 TODO 왜??
 				
 				// byte 배열을 문자열 형태로 만들어줌
 //				String echo = new String(receive.getData(), 0, receive.getData().length);

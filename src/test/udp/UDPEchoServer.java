@@ -20,13 +20,13 @@ public class UDPEchoServer {
 			while (true) {
 				System.out.println("====== 클라이언트 접속 대기 중 (port:" + dSock.getPort() + ")=====");
 
-				// 데이터 수신
+				// 2. 데이터 수신
 				byte[] buffer = new byte[1024];
 				DatagramPacket receive = new DatagramPacket(buffer, buffer.length);
 				dSock.receive(receive);
 
-				System.out.println("receive.getLength() : " + receive.getLength()); // 1024
-				System.out.println("receive.getData().length : " + receive.getData().length); // 클라이언트가 입력한 길이
+				System.out.println("receive.getLength() : " + receive.getLength()); // 클라이언트가 입력한 길이
+				System.out.println("receive.getData().length : " + receive.getData().length); // 1024 
 
 				// byte 배열을 문자형태로 만드는 방법
 				String msg = new String(receive.getData(), 0, receive.getLength());
@@ -36,7 +36,8 @@ public class UDPEchoServer {
 				System.out.println("메시지 보낸 곳의 주소: " + receive.getAddress());
 				System.out.println("메시지 보낸 곳의 포트: " + receive.getPort());
 
-				// 데이터 송신
+				
+				// 3. 데이터 송신
 				DatagramPacket send = new DatagramPacket( // DatagramPacket : 무조건 byte 형태가 담김
 						receive.getData(), // 보내는 메시지
 						receive.getData().length, // 보내는 메시지 길이
