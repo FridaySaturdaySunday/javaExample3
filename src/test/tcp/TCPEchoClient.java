@@ -13,13 +13,13 @@ public class TCPEchoClient {
 	
 	public static void main(String[] args) {
 		
-//		new TCPEchoClient().clientTCP("localhost", 9007);
-		new TCPEchoClient().clientTCP("127.0.0.1", 9007);
+		new TCPEchoClient().clientTCP("127.0.0.1", 9007); // "localhost" 도 가능
 	}
 
 	public void clientTCP(String ip, int port) {
 		
 		Socket sock = null;
+		
 		BufferedReader br = null;
 		PrintWriter wr = null;
 		BufferedReader stdin = null;
@@ -30,8 +30,8 @@ public class TCPEchoClient {
 			System.out.println("접속성공 !!");
 			
 			// 서버와 통신을 위한 stream 생성
-			br = new BufferedReader(new InputStreamReader(sock.getInputStream())); // 8. 입출력 스트림을 얻음
-			wr = new PrintWriter(new OutputStreamWriter(sock.getOutputStream())); // 8. 입출력 스트림을 얻음
+			br = new BufferedReader(new InputStreamReader(sock.getInputStream())); 
+			wr = new PrintWriter(new OutputStreamWriter(sock.getOutputStream())); 
 			
 			// 통신과 상관없이 입력데이터 -> Scanner 사용해도 됨
 			stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -41,22 +41,21 @@ public class TCPEchoClient {
 			// 서버와 통신
 			do {
 				System.out.print("\tInsert Msg > ");
-				msg = stdin.readLine();
+				msg = stdin.readLine(); // 1. 내가 쓴 메세지 읽기
 				// "exit" 입력으로 접속 끊기
 				if (msg.equals("exit")) {
 					return; // 리턴걸어도 finally문으로 감
 				}
 				// 에코 메시지 출력
-				wr.println(msg);
-				wr.flush(); // 10.
+				wr.println(msg); // 2. msg를 상대방에게 출력스트림으로 보냄
+				wr.flush(); 
 				
-				echo = br.readLine(); // 11.
-				System.out.println("\tSERVER> " + echo);
+				echo = br.readLine(); // 6. 서버가 보낸 메세지 읽고 echo에 담음
+				System.out.println("\tSERVER> " + echo); // 7. 내 창에 echo를 출력
 				
 			} while (msg != null);
 		} catch (IOException ie) {
 			ie.printStackTrace();
-//			System.out.println(ie);
 		} finally {
 			try {
 				if(stdin!=null) stdin.close();

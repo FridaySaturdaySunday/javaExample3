@@ -20,7 +20,6 @@ public class TCPEchoServer {
 		// 서버 소켓 관련 객체
 		ServerSocket serverSock = null;
 		Socket sock = null;
-
 		// 입출력 객체
 		BufferedReader br = null;
 		PrintWriter wr = null;
@@ -34,15 +33,16 @@ public class TCPEchoServer {
 				sock = serverSock.accept(); // 2. 청취 5. 생성 6. 소켓 리턴
 
 				// 클라이언트와 통신을 위한 stream 생성
-				br = new BufferedReader(new InputStreamReader(sock.getInputStream())); // 9. 입출력 스트림을 얻음
-				wr = new PrintWriter(new OutputStreamWriter(sock.getOutputStream())); // 9. 입출력 스트림을 얻음
+				br = new BufferedReader(new InputStreamReader(sock.getInputStream())); 
+				wr = new PrintWriter(new OutputStreamWriter(sock.getOutputStream())); 
 				
 				// 클라이언트와 통신
 				String msg = null;
-				while ((msg = br.readLine()) != null) { // 클라이언트가 보낸 메세지를 읽고 msg에 담음
-					System.out.println("\tCLIENT> " + msg);
-					wr.println(msg); // msg를 다시 클라이언트에게 출력스트림으로 보냄
-					wr.flush(); // 11. 입력 스트림 받아서 출력 스트림 전송 (Echo)
+				while ((msg = br.readLine()) != null) { // 3. 클라이언트가 보낸 메세지를 읽고 msg에 담음
+					System.out.println("\tCLIENT> " + msg); // 4. 내 창에 msg 출력 
+					
+					wr.println(msg); // 5. msg를 다시 상대방에게 출력스트림으로 보냄
+					wr.flush(); 
 				}
 			}
 		} catch (IOException ie) {
