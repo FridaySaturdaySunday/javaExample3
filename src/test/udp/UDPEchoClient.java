@@ -29,7 +29,7 @@ public class UDPEchoClient {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //			dSock = new DatagramSocket(); // 주어진 포트로 UDP 소켓 생성 (포트번호 지정하지 않으면 Windows에서 자동 지정)
-			dSock = new DatagramSocket(9090); // 포트번호 9090으로 UDP 소켓 생성
+			dSock = new DatagramSocket(9090); // 포트번호 9090으로 UDP 소켓 생성 (내꺼)
 			String str = null;
 			do {
 				// 데이터그램 송신

@@ -7,7 +7,7 @@ public class UDPEchoServer {
 
 	public static void main(String[] args) {
 
-		new UDPEchoServer().serverUDP(9000);
+		new UDPEchoServer().serverUDP(9007);
 	}
 
 	public void serverUDP(int port) {
