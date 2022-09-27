@@ -23,7 +23,6 @@ public class TcpClient {
 			s = new Socket("127.0.0.1", 9007); // TODO 
 			s = new Socket(InetAddress.getLocalHost(), 9007); // getLocalHost: 자기IP
 			s = new Socket(InetAddress.getLocalHost().getHostAddress(), 9007); // getHostAddress: String으로 반환
-			
 //			System.out.println(InetAddress.getLocalHost()); // DESKTOP-VG78N1V/192.168.20.127
 			
 			// 연결소켓으로부터 입출력 얻어옴
